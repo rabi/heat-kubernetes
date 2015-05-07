@@ -70,7 +70,7 @@ And once logged in you can run `kubectl`, etc:
     NAME                LABELS
     10.0.0.4            Ready
 
-You can log into your minions using the `minion` user as well.  You
+You can log into your minions using the `ec2-user` user as well.  You
 can get a list of minion addresses by running:
 
     $ heat output-show my-kube-cluster kube_minions_external
