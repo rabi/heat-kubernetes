@@ -27,7 +27,7 @@ to have both the `flannel` package installed and the appropriately
 configured `docker.service` unit.
 
 You can enable the VXLAN backend for flannel by setting the
-"flannel_use_vxlan" parameter to "true", but I have run into kernel
+"flannel_backend" parameter to "vxlan", but I have run into kernel
 crashes using that backend with CentOS 7.  It seems to work fine with
 Fedora 21.
 
@@ -60,15 +60,15 @@ output-show` command:
     $ heat output-show my-kube-cluster kube_master
     "192.168.200.86"
 
-You can ssh into that server as the `minion` user:
+You can ssh into that server as the `ec2-user` user:
 
-    $ ssh minion@192.168.200.86
+    $ ssh ec2-user@192.168.200.86
 
 And once logged in you can run `kubectl`, etc:
 
     $ kubectl get minions
     NAME                LABELS
-    10.0.0.4            <none>
+    10.0.0.4            Ready
 
 You can log into your minions using the `minion` user as well.  You
 can get a list of minion addresses by running:
